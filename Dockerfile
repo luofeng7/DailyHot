@@ -18,6 +18,8 @@ COPY --from=0 /app/dist .
 
 COPY --from=0 /app/start.sh .
 
+RUN chmod +x start.sh
+
 ENV API="https://api-hot.imsyy.top"
 
 ENV ICP="豫ICP备2022018134号-1"
