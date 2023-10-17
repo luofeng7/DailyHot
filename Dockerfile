@@ -16,4 +16,12 @@ WORKDIR /app
 
 COPY --from=0 /app/dist .
 
-CMD ["httpd", "-f", "-p", "80", "-h", "/app"]
+COPY --from=0 /app/start.sh .
+
+RUN chmod +x start.sh
+
+ENV API="https://api-hot.imsyy.top"
+
+ENV ICP="豫ICP备2022018134号-1"
+
+CMD ["/app/start.sh"]
