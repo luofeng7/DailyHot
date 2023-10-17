@@ -16,12 +16,8 @@ WORKDIR /app
 
 COPY --from=0 /app/dist .
 
-COPY --from=0 /app/start.sh .
+ENV VITE_GLOBAL_API="https://api-hot.imsyy.top"
 
-RUN chmod +x start.sh
+ENV VITE_ICP="豫ICP备2022018134号-1"
 
-ENV API="https://api-hot.imsyy.top"
-
-ENV ICP="豫ICP备2022018134号-1"
-
-CMD ["/app/start.sh"]
+CMD ["httpd", "-f", "-p", "80", "-h", "/app"]
